@@ -30,11 +30,17 @@ function(input, output, session){
   
   # Create the map
   output$map <- renderLeaflet({
-    #leaflet() %>%
-     # addTiles() %>%
-      #setView(lng = 33.87478, lat = 53.08414, zoom = 4)
-    leaflet(data = quakes[1:20,]) %>% addTiles() %>%
-      addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))
+    leaflet() %>% 
+      clearShapes() %>% 
+      addTiles() %>% 
+      setView(lng=-77.030137, lat=38.902986, zoom = 16) %>%
+      addMarkers(lng=-77.030137, lat=38.902986, popup="<b>Hello</b><br><a href='https://www.washingtonpost.com'>-Me</a>")
+    
+    leaflet() %>%
+      addTiles() %>%
+      setView(lng = 33.87478, lat = 53.08414, zoom = 4)
+    #leaflet(data = quakes[1:20,]) %>% addTiles() %>%
+     # addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))
   })
   
   dataset<-reactive({ 

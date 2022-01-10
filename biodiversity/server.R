@@ -5,16 +5,11 @@ library(lattice)
 library(dplyr)
 
 
-set.seed(100)
+#set.seed(100)
 
 function(input, output, session) {
 
   ## Interactive Map ###########################################
-
- 
-  
- 
-  
   #A reactive expression that returns the correct data
   
   datuse<- reactive({
@@ -37,7 +32,7 @@ function(input, output, session) {
   observe({
     
     leafletProxy("map1", data = unique(datuse() %>% select(vernacularName,longitudeDecimal,latitudeDecimal))) %>%
-      clearShapes() %>%
+      clearShapes() %>%clearMarkers %>% 
       addCircleMarkers(lng = ~longitudeDecimal, lat = ~latitudeDecimal, radius =1,
                        popup = ~paste(vernacularName))
       
