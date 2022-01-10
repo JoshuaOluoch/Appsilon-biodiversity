@@ -20,7 +20,7 @@ function(input, output, session) {
     }else{
       return(init_data() %>% filter(scientificName==input$sci_names))
     }
-  })
+  })%>% bindEvent(input$verc_names,input$sci_names)
   
   # Create the map
   output$map1 <- renderLeaflet({
