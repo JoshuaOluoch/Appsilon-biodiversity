@@ -1,13 +1,16 @@
-# SuperZIP demo
+# Biodiversity Shiny Application
 
-See a version of it live at http://shiny.rstudio.com/gallery/superzip-example.html
+This app is found in aws repository, with a shiny server.
 
-You can run this demo with:
+See the live app here :http://3.145.72.161:3838/Appsilon-biodiversity/biodiversity
+
+## Speeding up the app
+a) I used only the first 1M rows and subset for European observations. I was limited with disk space in my aws server.
+b) I had both the data(in a postgresql) and the shiny server in the aws server. 
+c) I also used memoise function in the memoise package to speed up some queries from the postgresql database
+d) I also used cache function(bindEvent) to cache all the inputs
 ```
-if (!require(devtools))
-  install.packages("devtools")
-devtools::install_github("rstudio/leaflet")
-shiny::runGitHub("rstudio/shiny-examples", subdir="063-superzip-example")
+#Install required packages
+install.packages('shiny', 'leaflets','tidyverse','RColorBrewer','lattice','scales','RPostgreSQL','DBI','memoise')
 ```
-
-Data compiled for _Coming Apart: The State of White America, 1960–2010_ by Charles Murray (Crown Forum, 2012). This app was inspired by the Washington Post's interactive feature _[Washington: A world apart](http://www.washingtonpost.com/sf/local/2013/11/09/washington-a-world-apart/)_.
+@Joshua Oluoch
