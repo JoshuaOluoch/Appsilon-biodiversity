@@ -27,7 +27,7 @@ navbarPage("Biodiversity", id="nav",
                          onInitialize = I('function() { this.setValue(""); }')
                         )),
                       br(),
-                      h4('Frequency of appearance of the species'),
+                      h4('Frequency of the species:'),
                       textOutput('freq'),
         )
     )
