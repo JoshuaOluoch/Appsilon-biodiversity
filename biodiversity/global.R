@@ -6,10 +6,11 @@ library(tidyverse)
 ## Loading required package: DBI
 pgdrv <- dbDriver(drvName = "PostgreSQL")
 db <-DBI::dbConnect(pgdrv,
-                    dbname="biodiversity",
-                    host="3.145.72.161", port=5432,
+                    dbname="dbname",
+                    host="host", port=5432,
                     user = 'postgres',
-                    password = 'Kennedyj.2022!')
+                    password = 'password
+')
 
 
 
